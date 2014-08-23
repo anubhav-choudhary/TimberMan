@@ -1,0 +1,71 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+	<meta name="author" content="anubhavchoudhary" />
+    <script src="js/jquery.js"></script>
+    <script src="js/app.js"></script>
+    <link href="css/style.css" rel="stylesheet" type="text/css" />
+	<title>Timber Man</title>
+</head>
+
+<body>
+<center>
+
+<!--HOME FRAME -->
+<div class="home frame">
+<center><h1>Timber Man</h1><br /><br />
+<a href="#" onclick="show_game()" class="list-link">Start Game</a><br /><br />
+<a href="#" onclick="toggle_controls()" class="list-link">Controls</a>
+</center>
+</div>
+
+<!--PAUSE FRAME  -->
+<div class="pause frame">
+<center><h1>Paused</h1>
+<a href="#" onclick="resume()" class="list-link">Resume</a><br /><br />
+<a href="#" onclick="quitgame()" class="list-link">End Game</a>
+</center>
+</div>
+
+<!--Controls FRAME  -->
+<div class="controls frame">
+<center><h1>Controls</h1>
+<p>Left Arrow to Cut from Left</p>
+<p>Right Arrow to Cut from Right</p>
+<p>Esc to Pause/Resume</p>
+<a href="#" onclick="toggle_controls()" class="list-link">Back</a>
+</center>
+</div>
+
+<!--GAME FRAME  -->
+<div class="game frame">
+<div class="tile" id="l6">
+<div id="tab">
+<!--GAME TAB  -->
+<span class="tab-text size1">Time Left <span id="time">30</span>  Sec</span><br />
+<span class="tab-text size2">Score <span id="score">0</span></span><br />
+<span class="tab-text size1">Level <span id="level">1</span></span>
+</div>
+</div>
+<div class="tile" id="l5"></div>
+<div class="tile" id="l4"></div>
+<div class="tile" id="l3">
+<!--GAMEOVER  -->
+<div id="gameover">You are dead.<br /> Your score : <span id="finalscore">0</span> 
+<br />
+<a href="#" onclick="start_game()" class="list-link">Restart Game</a>
+</div>
+</div>
+<div class="tile" id="l2"></div>
+<div class="tile" id="l1"></div>
+</div>
+
+<!--GAME TAB  -->
+<div class="tab">Highscore <span id="highscore">0</span></div>
+</center>
+
+
+</body>
+</html>
