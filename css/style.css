@@ -1,4 +1,9 @@
 /*14 Tile Styles*/
+.preloader
+{
+ display:none;   
+}
+
 .no_branch
 {
     background-image: url('../img/1.png');

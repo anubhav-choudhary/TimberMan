@@ -1,7 +1,6 @@
 //Variables declaration
-
 var score;
-var state;//State=(HOME,PAUSED,PLAY,END,GAMEOVER)
+var state;//State=(HOME,PAUSED,PLAY,END,GAMEOVER,START)
 var count;
 
 //End of declaration
@@ -60,7 +59,7 @@ function start_game() //Function to start a new game
     setTile(1,'no_branch_lm');
     $('#gameover').hide();
     $('#tab').show();
-    state="PLAY";
+    state="START";
     $('#time').html(30);
     $('#level').html(1);
 }
@@ -70,7 +69,13 @@ function end_game() //Function that is called when user is killed.
 {
     $('#tab').hide();
     $('#gameover').show();
-    $('#finalscore').html(score);
+    var hs="You are dead.<br> Your score : "+score+"<br> <a href='#' onclick='start_game()' class='list-link'>Restart Game</a>"
+    $('#gameover').html(hs);
+    if(score>getHighscore())
+    {
+        hs="<b>NEW HIGHSCORE</b></br>"+hs;
+    }
+    $('#gameover').html(hs);
     setHighscore(score);
     state="GAMEOVER";
 }
@@ -165,8 +170,6 @@ function show_game()// Function invoked when Play Game link is clicked
 {
     $('.frame').hide();
     $('.game').show();
-    state="PLAY";
-    count=0;
     start_game();    
 }
 //-----------------------------------------------------------------------------------------------------------
@@ -220,34 +223,35 @@ function setHighscore(score)
         $('#highscore').html(score);
         }
 }
+//Score and Level Management
+function update_score_level()
+{
+    if(score%100==0 && score!=0) 
+    {
+        var dlevel=parseInt($('#level').html());
+        $('#level').html(dlevel+1);  
+        var dtime=parseInt($('#time').html());
+        var limit_cap=30-(dlevel)*2;
+        if(dtime<30) $('#time').html((limit_cap>=20)?30-(dlevel)*2:20);          
+    }
+    setTimeout(play_cut_sound(),0);
+}
 
 //-----------------------------------------------------------------------------------------------------------    
 //KEY PRESS and LOAD EVENT FUNCTIONS    
 $(document).keydown(function(event)
 {
-    if(event.keyCode==37 && state=="PLAY")
+    if(event.keyCode==37 && (state=="PLAY" || state=="START"))
     {
+        if(state=="START") state="PLAY";
         show_result("left");
-        if(score%100==0) 
-        {
-        var dlevel=parseInt($('#level').html());
-        $('#level').html(dlevel+1);  
-        var dtime=parseInt($('#time').html());
-        if(dtime<20) $('#time').html(30);          
-        }
-        setTimeout(play_cut_sound(),0);
+        update_score_level();
     }
-    else if(event.keyCode==39 && state=="PLAY")
+    else if(event.keyCode==39 && (state=="PLAY" || state=="START"))
     {
+        if(state=="START") state="PLAY";
         show_result("right");
-        if(score%100==0 && score!=0) 
-        {
-        var dlevel=parseInt($('#level').html());
-        $('#level').html(dlevel+1);  
-        var dtime=parseInt($('#time').html());
-        if(dtime<20) $('#time').html(30);          
-        }
-        setTimeout(play_cut_sound(),0);
+        update_score_level();
     }
     else if(event.keyCode==27 && (state=="PLAY" || state=="PAUSED"))
     {
@@ -263,6 +267,7 @@ $(document).ready(function(){
     $('.home').show();
     $('#gameover').hide();
     $('#highscore').html(getHighscore());
+    $('#preloader').hide();
     state="HOME";
 });
 //-----------------------------------------------------------------------------------------------------------

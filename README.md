@@ -1,11 +1,39 @@
-TimberMan
+Timber Man
 =========
+This is a web verison of "Timberman" game developed by  [Digital Melody].
 
-This Project is web version on "Timberman" game developed by "Digital Melody".
+Timberman is an oldschool arcade style casual game. Become a Timberman, chop wood and avoid the branches. Sounds like an easy task? It's easy to play but hard to master. 
 
-Framework and Technologies Used
--------------------------------
-HTML, CSS, JQuery
+Live Demo
+---------
+[Click Here to Play]
+
+Current Version
+----
+1.1
+
+Features of Version 1.1
+-----
+ - Level change bug is fixed
+ - Now count down timer starts only after first key stroke.
+ - For each new level, time limit is reducted by 2 or set to 20. which ever has higher value.
+ - Graphics modified
 
 
-Project Live Demo : http://timberman-majorproject01.rhcloud.com
+Features of Version 1.0
+----------
+  - Highscore is maintained.
+  - Animation while cutting the tree.
+  - Axe sound is played while cutting the tree.
+
+Tech
+-----------
+This uses following open source project to work properly:
+
+* [jQuery]
+
+
+[Digital Melody]:http://digitalmelody.pl/
+[jQuery]:http://jquery.com/
+[Click Here to Play]:http://timberman-majorproject01.rhcloud.com
+
