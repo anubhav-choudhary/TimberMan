@@ -10,8 +10,15 @@ Live Demo
 
 Current Version
 ----
-1.1
+2.0
 
+Features of 2.0
+-----
+ - HTML5 Canvas is used for graphic rendering
+ - Game graphics improved
+ - Background music is added
+ - Smooth Animations added
+ 
 Features of Version 1.1
 -----
  - Level change bug is fixed
@@ -35,5 +42,5 @@ This uses following open source project to work properly:
 
 [Digital Melody]:http://digitalmelody.pl/
 [jQuery]:http://jquery.com/
-[Click Here to Play]:http://timberman-majorproject01.rhcloud.com
+[Click Here to Play]:http://timberman.azurewebsites.net/
 
